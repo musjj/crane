@@ -49,6 +49,7 @@ mkCargoDerivation (
         args
         // memoizedArgs
         // {
+          pname = "${memoizedArgs.pname}${cleanedArgs.pnameSuffix or ""}";
           # NB: we intentionally don't run any caller-provided hooks here since they might fail
           # if they require any files that have been omitted by the source dummification.
           # However, we still _do_ want to run the installation hook with the actual artifacts
